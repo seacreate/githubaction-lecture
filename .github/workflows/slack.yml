@@ -1,4 +1,4 @@
-name: Docker Build and Push
+name: Send email
 
 on:
   push:
@@ -8,14 +8,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      REPOSITORY_URL: docker.pkg.github.com
+      # REPOSITORY_URL: docker.pkg.github.com
       IMAGE_NAME: ${{ github.repository }}
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK }}
     steps:
       - uses: act10ns/slack@v1
         with:
           status: starting
-          channel: '#workflows'
+          # channel: '#workflows'
         if: always()
       - name: Checkout
         uses: actions/checkout@v2
@@ -26,6 +26,9 @@ jobs:
         with:
           status: ${{ job.status }}
           steps: ${{ toJson(steps) }}
-          channel: '#workflows'
-          message: 'hi!'
+            # channel: '#workflows'
+          message: 'You rock!'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK }}
+
         if: always()
