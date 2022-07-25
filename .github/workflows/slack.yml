@@ -10,7 +10,7 @@ jobs:
     env:
       REPOSITORY_URL: docker.pkg.github.com
       IMAGE_NAME: ${{ github.repository }}
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK }}
     steps:
       - uses: act10ns/slack@v1
         with:
