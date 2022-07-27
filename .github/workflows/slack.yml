@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64, hi]
     env:
       # REPOSITORY_URL: docker.pkg.github.com
       IMAGE_NAME: ${{ github.repository }}
